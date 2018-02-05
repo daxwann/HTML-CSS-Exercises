@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML sample form</title>
+</head>
+<body>
+    <form action="#" method="POST">
+        <fieldset>
+            <legend>Your Details:</legend>
+            <label for="inputName">Name:</label>
+            <input id="inputName" type="text" name="name"/><br>
+            <label for="inputEmail">Email:</label>
+            <input id="inputEmail" type="email" name="email"/>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Your Review:</legend>
+            <p>
+                <label for="selectSource">How did you hear about us?</label>
+                <select id="selectSource" name="source">
+                    <option value="google">Google</option>
+                    <option value="yahoo">Yahoo</option>
+                    <option value="friend">Friend</option>
+                </select>
+            </p>
+            <p>Would you visit again?
+                <br>
+                <input id="radioVisitYes" type="radio" name="visitAgain" value="yes"/>
+                <label for="radioVisitTrue">Yes</label>
+                <input id="radioVisitNo" type="radio" name="visitAgain" value="no"/>
+                <label for="radioVisitNo">No</lable>
+                <input id="radioVisitMaybe" type="radio" name="visitAgain" value="maybe"/>
+                <label for="radioVisitMaybe">Maybe</label>
+            </p>
+            <p><label for="textComments">Comments:</label><br>
+            <textarea id="textComments" name="comments"></textarea></p>
+            <input id="checkUpdates" type="checkbox" name="updates" value="true" checked="checked"/>
+            <label for="checkUpdates">Sign me up for email updates</label><br>
+            <input type="submit" value="Submit review"/>
+        </fieldset>
+    </form>
+</body>
+</html>
