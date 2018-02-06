@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calendar form</title>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <h1>Register</h1>
+        <form>
+        <p>
+            <label>First Name: <input type="text" name="firstName" placeholder="John"/></label>
+            <label>Last Name: <input type="text" name="lastName" placeholder="Smith"/></label>
+        </p>
+        <p>
+            <label>Male <input type="radio" name="gender" value="male" checked="checked"/></label>
+            <label>Female <input type="radio" name="gender" value="femaile"/></label>
+            <label>Other <input type="radio" name="gender" value="other"/></label>
+        </p>
+        <p>
+            <select name="month" id="month">
+                <option selected hidden>Month</option>
+            </select>
+            <select name="day" id="day">
+                <option selected hidden>Day</option>
+            </select>
+            <select name="year" id="year">
+                <option selected hidden>Year</option>
+            </select>
+        </p>
+        <p>
+            <label>I agree to the terms and conditions <input type="checkbox" name="terms" value="yes"/></label>
+        </p>
+        <input type="submit" name="submit"/>
+        </form>
+        <script>
+            function populateDateFields() {
+                var year = new Date().getFullYear();
+                //populate year field
+                for (i=year; i>=1910; i--) {
+                    $("#year").append('<option value="' + i + '">' + i + '</option>');
+                }
+                //populate month field
+                for (i=1; i<=12; i++) {
+                    $("#month").append('<option value="' + i + '">' + i + '</option>');
+                }
+                //populate day field
+                for (i=1; i<=31; i++) {
+                    $("#day").append('<option value="' + i + '">' + i + '</option>');
+                }
+            };
+            populateDateFields();
+
+$(function() {
+  $('#year').change(function() {
+    var now = new Date();
+    //prevent month option from going over current date
+    if ($('#year').val()==now.getFullYear()) {
+      $('#month option').each(function() {
+        if ($(this).val()>(now.getMonth()+1)) {
+            $(this).remove();
+        }
+      });
+    } else {
+    //repopulate month option
+      for (var i=1; i<=12; i++)
+        if ($("#month option[value='" + i + "']").val()==undefined) {
+          $("#month").append('<option value=' + i + '>' + i + '</option>');
+        }
+    }
+
+    checkMonth();
+  });
+
+  $('#month').change(checkMonth);
+});
+
+function checkMonth() {
+  var now = new Date();
+  //prevent day from going over current date
+  if ($('#year').val()==now.getFullYear() && $('#month').val()==(now.getMonth()+1)) {
+    $('#day option').each(function() {
+      if ($(this).val()>now.getDate()) $(this).remove();
+    });
+  } else {
+    //update days list according to month and year
+    var days = 31;
+    var month = $('#month').val();
+    if (month==2) {
+      if (($('#year').val() % 4) == 0) days = 29; // leap year
+      else days = 28;
+    } else if (month==2 || month==4 || month==6 || month==9 || month==11) {
+      days = 30;
+    }
+    for (var i=1; i<32; i++)
+      if (i>days)
+        $("#day option[value='" + i + "']").remove();
+      else if ($("#day option[value='" + i + "']").val()==undefined)
+        $("#day").append('<option value=' + i + '>' + i + '</option>');
+  }
+}
+        </script>
+    </body>
+</html>
