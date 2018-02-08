@@ -1,0 +1,148 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    min-width: 300px;
+    width: auto;
+}
+
+/*style for header, nav, and footer*/
+#outerWrapper {
+    width: 90%;
+    border: solid 4px #0c3606;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #0c3606;
+    text-align: center;
+    height: auto;
+}
+
+header h1 {
+    font-size: 4em;
+    color: #fff;
+    font-family: 'Questrial', sans-serif;
+}
+
+#logoFont {
+    color: #fff;
+    font-family: 'Ruda', sans-serif;
+    text-shadow: -2px 0 #6c8868, 0 2px #6c8868, 2px 0 #6c8868, 0 -2px #6c8868; 
+}
+
+nav {
+    background-color: #6c8868;
+    text-align: center;
+    border-bottom: solid 4px #0c3606;
+}
+
+nav ul li{
+    display: inline-block;
+    margin: .5em .5em;
+}
+
+nav a.target {
+    font-weight: bold;
+}
+
+footer ul li{
+    display: inline-block;
+    margin: .5em .5em;
+}
+
+nav a {
+    color: #0c3606;
+}
+
+
+footer {
+    background-color: #6c8868;
+    border-top: solid 4px #0c3606;
+    text-align: center;
+}
+
+footer ul li:before {
+    content: '\00a0\2022\00a0\00a0';
+    padding-right: .5em;
+}
+
+footer ul li:first-child:before {
+    content: '';
+}
+
+.clearBoth {
+    clear: both;
+}
+/*style for home page*/
+#home p {
+    margin: 1em 1em;
+}
+
+#home img {
+    width: 70%;
+    display: block;
+    margin: 1em auto 1em auto;
+    max-width: 353px;
+}
+
+/*style for what's nearby page*/
+#nearby h2 {
+    font-family: Arial, sans-serif;
+    font-size: 1.5em;
+    padding: .5em;
+    text-align: center;
+}
+
+#nearby ul {
+    float: left;
+    width: 50%;
+}
+
+#nearby ul li {
+    margin-left: 40%;
+    margin-bottom: .3em;
+}
+
+#nearby .aside {
+    float: right;
+    width: 40%;
+    text-align: center;
+}
+
+#nearby .aside figure {
+    margin-bottom: 1em;
+    padding: 0 1em;
+}
+
+#nearby img {
+    width: 100%;
+    max-width: 149px;
+}
+
+/*green sf page*/
+#greensf h2{
+    font-family: Arial, sans-serif;
+    font-size: 1.5em;
+    padding: .5em;
+    text-align: center;
+}
+
+#greensf p{
+    margin-left: 2em;
+    margin-bottom: 1em;
+}
+
+#greensf ul {
+    margin-left: 4em;
+    margin-bottom: 1em;
+}
+
+/*media query*/
+@media only screen and (max-width: 500px) {
+    header h1 {
+        font-size: 2em;
+    }
+}
